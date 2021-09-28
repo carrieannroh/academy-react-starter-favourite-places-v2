@@ -3,8 +3,7 @@ import { isPropertyDeclaration } from "typescript";
 interface JournalEntryProps {
     image: string;
     title: string;
-    placeName: string;
-    countryName: string;
+    location: string;
     mapLink: string;
     description: string;
   }
@@ -12,10 +11,12 @@ interface JournalEntryProps {
   function JournalEntry(props: JournalEntryProps): JSX.Element {
     return (
       <section>
-        <img src={props.image} /> 
+        <img src={props.image} alt = "hello" width="500" height="500" /> 
         <h2>{props.title}</h2>
-        <h3>{props.placeName}</h3>
-        <h4>{props.countryName} ({props.mapLink}) </h4>
+        <h3>
+            {props.location} 
+            <a href = {props.mapLink}> (maps link)</a>
+         </h3>
         <p>{props.description}</p>
       </section>
     );
